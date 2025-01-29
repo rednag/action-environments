@@ -4,7 +4,7 @@ Resources:
   UdaBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: website-artifacts
+      BucketName: websiteartifacts
       WebsiteConfiguration:
         IndexDocument: index.html
         ErrorDocument: error.html
