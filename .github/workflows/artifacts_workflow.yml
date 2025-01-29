@@ -11,7 +11,7 @@ on:
 #        required: true
 #        default: 'error.html'
 #env:
-#  BUCKET_NAME: website
+#  BUCKET_NAME: udacity-website-bucket
 #
 jobs:
   build:
@@ -32,7 +32,7 @@ jobs:
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: udatest
-          template: udatest.yml
+          template: udaartifact.yml
           no-fail-on-empty-changeset: "1"
           
       #- name: Upload files to S3 bucket
