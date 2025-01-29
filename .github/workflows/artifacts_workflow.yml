@@ -31,7 +31,7 @@ jobs:
       - name: Create CloudFormation Stack
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
-          name: udaartifact
+          name: uda
           template: udaartifact.yml
       #    no-fail-on-empty-changeset: "1"
           
