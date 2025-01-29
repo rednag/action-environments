@@ -11,7 +11,7 @@ on:
         required: true
         default: 'error.html'
 env:
-  BUCKET_NAME: website-cache
+  BUCKET_NAME: website
 
 jobs:
   build:
@@ -35,15 +35,15 @@ jobs:
           template: udaartifact.yml
       #    no-fail-on-empty-changeset: "1"
           
-      - name: Upload files to S3 bucket
-        run: |
-          aws s3 cp ./website/${{ github.event.inputs.index_document }} s3://${{env.BUCKET_NAME}} 
-          aws s3 cp ./website/${{ github.event.inputs.error_document }} s3://${{env.BUCKET_NAME}} 
-
-      - name: Show S3 bucket website URL
-        run: |
-          aws cloudformation describe-stacks \
-            --stack-name uda-artifact \
-            --query 'Stacks[0].Outputs[?OutputKey==`ArtifactBucketWebsiteURL`].OutputValue' \
-            --output text
+      #- name: Upload files to S3 bucket
+      #  run: |
+      #    aws s3 cp ./website/${{ github.event.inputs.index_document }} s3://${{env.BUCKET_NAME}} 
+      #    aws s3 cp ./website/${{ github.event.inputs.error_document }} s3://${{env.BUCKET_NAME}} 
+#
+      #- name: Show S3 bucket website URL
+      #  run: |
+      #    aws cloudformation describe-stacks \
+      #      --stack-name uda-artifact \
+      #      --query 'Stacks[0].Outputs[?OutputKey==`ArtifactBucketWebsiteURL`].OutputValue' \
+      #      --output text
 
