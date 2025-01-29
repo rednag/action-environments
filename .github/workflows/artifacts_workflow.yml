@@ -1,18 +1,18 @@
 name: Dynamic Workflow and Upload Files
 on:
   workflow_dispatch:
-    inputs:
-      index_document:
-        description: 'Name of the index document'
-        required: true
-        default: 'index.html'
-      error_document:
-        description: 'Name of the error document'
-        required: true
-        default: 'error.html'
-env:
-  BUCKET_NAME: website
-
+#    inputs:
+#      index_document:
+#        description: 'Name of the index document'
+#        required: true
+#        default: 'index.html'
+#      error_document:
+#        description: 'Name of the error document'
+#        required: true
+#        default: 'error.html'
+#env:
+#  BUCKET_NAME: website
+#
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -31,9 +31,9 @@ jobs:
       - name: Create CloudFormation Stack
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
-          name: uda
-          template: udaartifact.yml
-      #    no-fail-on-empty-changeset: "1"
+          name: udatest
+          template: udatest.yml
+          no-fail-on-empty-changeset: "1"
           
       #- name: Upload files to S3 bucket
       #  run: |
